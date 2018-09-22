@@ -17,11 +17,14 @@ Route::prefix('admin')->group(function() {
     Route::get('/home', 'AdminController@index')->name('admin.home');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resources([
+    'posts' => 'PostController'
+]);
+Route::put('/posts/{post}', 'PostController@update')->name('posts.update');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('index');
+
+Route::get('/home', 'HomeController@home')->name('home');
 
 Auth::routes();
 
