@@ -119,4 +119,9 @@ class PostController extends Controller
         }
         return redirect()->route('home');
     }
+
+    public function detail(Post $post)
+    {
+        return view('post-detail', ['post' => $post]);
+    }
 }

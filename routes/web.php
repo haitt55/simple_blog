@@ -21,6 +21,7 @@ Route::resources([
     'posts' => 'PostController'
 ]);
 Route::put('/posts/{post}', 'PostController@update')->name('posts.update');
+Route::get('/posts/detail/{post}', 'PostController@detail')->name('posts.detail');
 
 Route::get('/', 'HomeController@index')->name('index');
 

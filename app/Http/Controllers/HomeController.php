@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => ['index']]);
     }
 
     /**
@@ -24,7 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $posts = Post::where('is_publish', 1)->orderBy('id', 'desc')->paginate(5);
+        return view('index')->with([
+            'posts' => $posts
+        ]);
     }
 
     /**
