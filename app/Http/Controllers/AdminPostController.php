@@ -58,10 +58,7 @@ class AdminPostController extends Controller
      */
     public function show($id)
     {
-        $post = Post::find($id);
-        return view('admin-post-show')->with([
-            'post' => $post
-        ]);
+        //
     }
 
     /**
