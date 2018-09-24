@@ -43,18 +43,6 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-md-8 col-md-offset-3">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="is_publish"
-                                               id="is_publish" {{ old('is_publish', $post->is_publish) ? 'checked' : '' }}>
-
-                                        <label class="form-check-label" for="is_publish">
-                                            {{ __('Pushlish') }}
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
                                 <div class="col-sm-3"></div>
                                 <div class="col-sm-2">
                                     <button class="btn btn-primary" type="submit" name="{{ __('Create') }}">@if($post->id) {{ __('Update') }} @else{{ __('create') }}@endif</button>
