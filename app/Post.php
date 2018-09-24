@@ -17,4 +17,9 @@ class Post extends Model
     protected $fillable = [
         'user_id', 'title', 'boby', 'is_publish', 'published_at'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'user_id', 'id');
+    }
 }
