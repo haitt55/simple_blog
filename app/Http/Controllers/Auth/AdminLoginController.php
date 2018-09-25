@@ -10,6 +10,13 @@ use Illuminate\Support\Facades\Auth;
 class AdminLoginController extends Controller
 {
     /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+    protected $redirectTo = '/admin/home';
+
+    /**
      * Show the application’s login form.
      *
      * @return \Illuminate\Http\Response
@@ -24,12 +31,7 @@ class AdminLoginController extends Controller
     }
 
     use AuthenticatesUsers;
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/admin';
+
     /**
      * Create a new controller instance.
      *
@@ -38,5 +40,20 @@ class AdminLoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest:admin')->except('logout');
+    }
+
+    /**
+     * Log the user out of the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        //$request->session()->invalidate();
+
+        return redirect()->route('admin.login');
     }
 }

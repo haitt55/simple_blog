@@ -54,7 +54,7 @@
                                     {{ __('Logout') }}
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                <form id="logout-form" action="{{ route('admin.logout') }}" method="POST"
                                       style="display: none;">
                                     @csrf
                                 </form>
@@ -76,6 +76,7 @@
 <script type="text/javascript" src="{{ asset('jquery/jquery-1.8.3.min.js') }}" charset="UTF-8"></script>
 <script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap-markdown.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 @yield('js')
 </body>
 </html>
